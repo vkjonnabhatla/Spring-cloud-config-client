@@ -1,0 +1,21 @@
+
+spring:
+  profiles:
+    active: production    
+
+---
+spring:
+  profiles: development
+  cloud:
+    config:
+      name: application-a  #property file starts with mosaic like application-a-[development]
+      uri: http://localhost:9999
+      failFast: false
+---
+spring:
+  profiles: production
+  cloud:
+    config:
+      name: application-a #,common  #property file starts wlike application-a-[e2e|production] and common-[e2e|production]
+      uri: http://localhost:9999
+      failFast: true
